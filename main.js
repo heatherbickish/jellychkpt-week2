@@ -45,7 +45,6 @@ const autoUpgrades = [
 
 function mineJelly() {
   jelly += 1
-
   let totalBonus = 0
   for (let i = 0; i < clickUpgrades.length; i++) {
     let upgrade = clickUpgrades[i]
@@ -64,6 +63,7 @@ function buyNet() {
     purchasedNetElm.innerText = net.quantity.toString()
     updateJellyCount()
     displayBonus()
+    upgradeNetIncrease()
   }
 }
 
@@ -76,8 +76,39 @@ function buyScooper() {
     purchasedScooper.innerText = net.quantity.toString()
     updateJellyCount()
     displayBonus()
+    upgradeScooperIncrease()
   }
 }
+
+// function buyClickUpgrades(purchasedUpgrade) {
+//   for (let i = 0; i < clickUpgrades.length; i++) {
+//     let upgrade = clickUpgrades[i]
+//     if(jelly >= upgrade.price){
+//       upgrade.quantity++
+//       let boughtClicksElm = 
+
+//     }
+//   }
+// }
+
+function upgradeNetIncrease() {
+  let upgrade = clickUpgrades[0]
+  if (upgrade.quantity >= 1) {
+    let increase = upgrade.quantity * upgrade.price * 2
+    let increaseElm = document.getElementById('upgrade-net')
+    increaseElm.innerText = increase.toString()
+  }
+}
+
+function upgradeScooperIncrease() {
+  let upgrade = clickUpgrades[1]
+  if (upgrade.quantity >= 1) {
+    let increase = upgrade.quantity * upgrade.price * 2
+    let increaseElm = document.getElementById('upgrade-scooper')
+    increaseElm.innerText = increase.toString()
+  }
+}
+
 
 
 
@@ -100,9 +131,7 @@ function displayBonus() {
   for (let i = 0; i < clickUpgrades.length; i++) {
     let upgrade = clickUpgrades[i]
     totalBonus += upgrade.bonus * upgrade.quantity
-
     console.log(totalBonus);
-    // instead of drawing, add this total to the jelly
     let dispayBonusElm = document.getElementById('display-bonus')
     dispayBonusElm.innerText = `+ ${totalBonus}`
   }

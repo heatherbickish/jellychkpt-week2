@@ -16,4 +16,10 @@
 .boxes {
   width: 160px;
   height: 90px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.jelly-icon {
+  color: #570955;
 }

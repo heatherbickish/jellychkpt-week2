@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="style.css">
   <title>🪼Jelly Collector</title>
 </head>
+<!-- SECTION jellyfish -->
 
 <body class="bg-img">
   <header class="container-fluid">
@@ -21,33 +22,34 @@
         <div class="text-center fw-bold mt-5 text-primary">
           <h1>Jelly Collector</h1>
         </div>
-        <div id="jellyfish" class="text-center mt-3">
+        <div id="jellyfish" class="text-center">
           <span onclick="mineJelly()" class="jellyfish">🪼</span>
         </div>
       </div>
     </section>
   </header>
 
+  <!-- SECTION display tabs -->
   <main class="container-fluid">
     <section class="row justify-content-center">
-      <div class="col-md-2 bg-success rounded-3">
+      <div class="col-md-2 bg-success rounded-top-3">
         <div class="tab text-light text-center fs-4">
           <span id="display-bonus" class="p-3">+0</span><span class="mdi mdi-cursor-pointer"></span>
         </div>
       </div>
-      <div class="col-md-4 bg-primary rounded-3">
+      <div class="col-md-4 bg-primary rounded-top-3">
         <div class="fs-2 text-center">
-          <span class="mdi mdi-liquid-spot"></span><span id="current-jelly">0</span>
+          <span class="jelly-icon mdi mdi-liquid-spot"></span><span id="current-jelly">0</span>
 
         </div>
       </div>
-      <div class="col-md-2 bg-success rounded-3">
+      <div class="col-md-2 bg-success rounded-top-3">
         <div class="tab text-light text-center fs-4">
-          <span class="p-5">+0</span><span class="mdi mdi-alarm"></span>
+          <span class="p-3">+0</span><span class="mdi mdi-alarm"></span>
         </div>
       </div>
-      <!-- SECTION upgrades -->
 
+      <!-- SECTION upgrades -->
       <section class="row justify-content-center">
         <div class="col bg-success">
           <div class="p-4">
@@ -55,15 +57,16 @@
             <div class="col-md-3 bg-secondary boxes">
               <div class="text-center">
                 <span onclick="buyNet()">
-                  <p class="mdi mdi-liquid-spot px-2 fs-3">50</p> <span>Net + </span><span id="net">1</span>
+                  <p id="upgrade-net" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">50</p><span>Net + </span><span
+                    id="net">1</span>
                 </span>
               </div>
             </div>
             <div class="col-md-3 bg-secondary boxes">
               <div class="text-center mt-3">
                 <span onclick="buyScooper()">
-                  <p class="mdi mdi-liquid-spot px-2 fs-3">500</p> <span>Giant Scooper +</span><span
-                    id="scooper">0</span>
+                  <p id="upgrade-scooper" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">500</p> <span>Giant Scooper
+                    +</span><span id="scooper">0</span>
                 </span>
               </div>
             </div>
@@ -78,14 +81,16 @@
             <div class="col-md-3 bg-secondary boxes">
               <div class="text-center">
                 <span>
-                  <p class="mdi mdi-liquid-spot px-2 fs-3">1000</p> <span>Bass Drops + </span><span id="bass ">0</span>
+                  <p class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">1000</p> <span>Bass Drops + </span><span
+                    id="bass ">0</span>
                 </span>
               </div>
             </div>
             <div class="col-md-3 bg-secondary boxes">
               <div class="text-center mt-3">
                 <span>
-                  <p class="mdi mdi-liquid-spot px-2 fs-3">50000</p> <span>House Party +</span><span id="house">0</span>
+                  <p class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">50000</p> <span>House Party +</span><span
+                    id="house">0</span>
                 </span>
               </div>
             </div>
@@ -100,14 +105,14 @@
             <div class="col-md-3 bg-secondary boxes">
               <div class="text-center">
                 <span>
-                  <p class="mdi mdi-liquid-spot px-2">50</p> <span>Net + </span><span>1</span>
+                  <p class="jelly-icon mdi mdi-liquid-spot px-2">50</p> <span>Net + </span><span>1</span>
                 </span>
               </div>
             </div>
             <div class="col-md-3 bg-secondary boxes">
               <div class="text-center mt-3">
                 <span>
-                  <p class="mdi mdi-liquid-spot px-2">50</p> <span>Giant Net +</span><span>1</span>
+                  <p class="jelly-icon mdi mdi-liquid-spot px-2">50</p> <span>Giant Net +</span><span>1</span>
                 </span>
               </div>
             </div>
