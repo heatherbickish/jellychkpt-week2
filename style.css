@@ -1,0 +1,19 @@
+.jellyfish {
+  cursor: grab;
+  font-size: 20em;
+  user-select: none;
+}
+
+.bg-img {
+  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b297e143-e206-4a8f-8b5c-59dbc26a99d5/ddtdlgv-48ac2b91-bab5-41fe-a2ca-7b80cc57c92d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IyOTdlMTQzLWUyMDYtNGE4Zi04YjVjLTU5ZGJjMjZhOTlkNVwvZGR0ZGxndi00OGFjMmI5MS1iYWI1LTQxZmUtYTJjYS03YjgwY2M1N2M5MmQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mrMOlioaOnl4YVoeaOz9lzHDZFxzZxF_oBI6Eu4_rLs);
+  background-size: cover;
+}
+
+.tab {
+  height: 60px;
+}
+
+.boxes {
+  width: 160px;
+  height: 90px;
+}
