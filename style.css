@@ -1,7 +1,33 @@
+:root {
+  --pink: #f784c3;
+  --yellow: #f7e844;
+  --dark-pink: #a44988;
+  --dark-yellow: #a49713;
+}
+
+
+body {
+  font-family: "DynaPuff", system-ui;
+}
+
+.text-outline {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+h1 {
+  font-size: 5em;
+}
+
 .jellyfish {
   cursor: grab;
   font-size: 20em;
   user-select: none;
+  text-shadow: 1px 0 5px black;
+}
+
+.outer-marquee {
+  height: 100%;
 }
 
 .bg-img {
@@ -11,6 +37,19 @@
 
 .tab {
   height: 60px;
+  background-color: var(--pink);
+}
+
+.background-tab {
+  background-color: #a44988;
+}
+
+.jelly-tab {
+  background-color: var(--yellow);
+}
+
+.background-menu {
+  background-color: var(--dark-pink);
 }
 
 .boxes {
@@ -18,8 +57,13 @@
   height: 90px;
   cursor: pointer;
   user-select: none;
+  background-color: var(--pink);
 }
 
 .jelly-icon {
   color: #570955;
+}
+
+.point-icon {
+  color: #f7e844;
 }

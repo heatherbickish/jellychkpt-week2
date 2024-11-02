@@ -1,6 +1,6 @@
 
 
-let jelly = 2000
+let jelly = 70000
 
 
 
@@ -24,7 +24,7 @@ const clickUpgrades = [
 
 const autoUpgrades = [
   {
-    name: 'bass drops',
+    name: 'beat drop',
     price: 1000,
     quantity: 0,
     bonus: 10
@@ -54,6 +54,17 @@ function mineJelly() {
   updateJellyCount()
 }
 
+function mineAutoJelly() {
+  jelly += 0
+  let totalBonus = 0
+  for (let i = 0; i < autoUpgrades.length; i++) {
+    let auto = autoUpgrades[i]
+    totalBonus += auto.bonus * auto.quantity
+  }
+  jelly += totalBonus
+  updateJellyCount()
+}
+
 function buyNet() {
   let net = clickUpgrades[0]
   if (jelly >= net.price) {
@@ -62,7 +73,7 @@ function buyNet() {
     let purchasedNetElm = document.getElementById('net')
     purchasedNetElm.innerText = net.quantity.toString()
     updateJellyCount()
-    displayBonus()
+    displayClickBonus()
     upgradeNetIncrease()
   }
 }
@@ -75,21 +86,10 @@ function buyScooper() {
     let purchasedScooper = document.getElementById('scooper')
     purchasedScooper.innerText = net.quantity.toString()
     updateJellyCount()
-    displayBonus()
+    displayClickBonus()
     upgradeScooperIncrease()
   }
 }
-
-// function buyClickUpgrades(purchasedUpgrade) {
-//   for (let i = 0; i < clickUpgrades.length; i++) {
-//     let upgrade = clickUpgrades[i]
-//     if(jelly >= upgrade.price){
-//       upgrade.quantity++
-//       let boughtClicksElm = 
-
-//     }
-//   }
-// }
 
 function upgradeNetIncrease() {
   let upgrade = clickUpgrades[0]
@@ -109,6 +109,52 @@ function upgradeScooperIncrease() {
   }
 }
 
+function buyBeatDrop() {
+  let upgrade = autoUpgrades[0]
+  if (jelly >= upgrade.price) {
+    jelly -= upgrade.price
+    upgrade.quantity++
+    let purchasedBeatElem = document.getElementById('beat')
+    purchasedBeatElem.innerText = upgrade.quantity.toString()
+  }
+  updateJellyCount()
+  mineAutoJelly()
+  displayAutoBonus()
+  upgradeBeatIncrease()
+}
+
+function buyHouseParty() {
+  let upgrade = autoUpgrades[1]
+  if (jelly >= upgrade.price) {
+    jelly -= upgrade.price
+    upgrade.quantity++
+    let purchasedPartyElm = document.getElementById('house')
+    purchasedPartyElm.innerText = upgrade.quantity.toString()
+  }
+  updateJellyCount()
+  mineAutoJelly()
+  displayAutoBonus()
+}
+
+function upgradeBeatIncrease() {
+  let upgrade = clickUpgrades[0]
+  if (upgrade.quantity >= 1) {
+    let increase = upgrade.quantity * upgrade.price * 2
+    let increaseElm = document.getElementById('upgrade-beat')
+    increaseElm.innerText = increase.toString()
+  }
+}
+
+
+
+
+
+setInterval(mineAutoJelly, 2000)
+
+
+
+
+
 
 
 
@@ -126,17 +172,25 @@ function updateJellyCount() {
   updateJellyElm.innerText = jelly.toString()
 }
 
-function displayBonus() {
+function displayClickBonus() {
   let totalBonus = 1
   for (let i = 0; i < clickUpgrades.length; i++) {
     let upgrade = clickUpgrades[i]
     totalBonus += upgrade.bonus * upgrade.quantity
-    console.log(totalBonus);
     let dispayBonusElm = document.getElementById('display-bonus')
     dispayBonusElm.innerText = `+ ${totalBonus}`
   }
 }
 
+function displayAutoBonus() {
+  let totalBonus = 0
+  for (let i = 0; i < autoUpgrades.length; i++) {
+    let upgrade = autoUpgrades[i]
+    totalBonus += upgrade.bonus * upgrade.quantity
+    let displayAutoElm = document.getElementById('auto-bonus')
+    displayAutoElm.innerText = `+ ${totalBonus}`
+  }
+}
 
 
 

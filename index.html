@@ -10,9 +10,13 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
     defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>🪼Jelly Collector</title>
 </head>
+
 <!-- SECTION jellyfish -->
 
 <body class="bg-img">
@@ -20,7 +24,7 @@
     <section class="row justify-content-center">
       <div class="col">
         <div class="text-center fw-bold mt-5 text-primary">
-          <h1>Jelly Collector</h1>
+          <h1 class="text-outline">Jelly Collector</h1>
         </div>
         <div id="jellyfish" class="text-center">
           <span onclick="mineJelly()" class="jellyfish">🪼</span>
@@ -32,41 +36,40 @@
   <!-- SECTION display tabs -->
   <main class="container-fluid">
     <section class="row justify-content-center">
-      <div class="col-md-2 bg-success rounded-top-3">
-        <div class="tab text-light text-center fs-4">
+      <div class="col-md-2 background-tab rounded-top-3 border border-dark">
+        <div class="tab text-dark text-center fs-4 mt-3">
           <span id="display-bonus" class="p-3">+0</span><span class="mdi mdi-cursor-pointer"></span>
         </div>
       </div>
-      <div class="col-md-4 bg-primary rounded-top-3">
-        <div class="fs-2 text-center">
+      <div class="col-md-4 bg-warning rounded-top-3 border border-dark">
+        <div class="jelly-tab fs-2 text-center mt-3">
           <span class="jelly-icon mdi mdi-liquid-spot"></span><span id="current-jelly">0</span>
 
         </div>
       </div>
-      <div class="col-md-2 bg-success rounded-top-3">
-        <div class="tab text-light text-center fs-4">
-          <span class="p-3">+0</span><span class="mdi mdi-alarm"></span>
+      <div class="col-md-2 background-tab rounded-top-3 border border-dark">
+        <div class="tab text-dark text-center fs-4 mt-3">
+          <span id="auto-bonus" class="p-3">+0</span><span class="mdi mdi-alarm"></span>
         </div>
       </div>
 
-      <!-- SECTION upgrades -->
+      <!-- SECTION upgrades and stats -->
       <section class="row justify-content-center">
-        <div class="col bg-success">
+        <div class="col background-menu">
           <div class="p-4">
             <h5>Click Upgrades</h5>
-            <div class="col-md-3 bg-secondary boxes">
+            <div class="col-md-3 boxes rounded-3">
               <div class="text-center">
                 <span onclick="buyNet()">
-                  <p id="upgrade-net" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">50</p><span>Net + </span><span
-                    id="net">1</span>
+                  <p id="upgrade-net" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">50</p><span>Net</span>
                 </span>
               </div>
             </div>
-            <div class="col-md-3 bg-secondary boxes">
+            <div class="col-md-3 boxes rounded-3">
               <div class="text-center mt-3">
                 <span onclick="buyScooper()">
-                  <p id="upgrade-scooper" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">500</p> <span>Giant Scooper
-                    +</span><span id="scooper">0</span>
+                  <p id="upgrade-scooper" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">500</p><span>Giant
+                    Scooper</span>
                 </span>
               </div>
             </div>
@@ -75,44 +78,21 @@
         </div>
         </div>
         </div>
-        <div class="col bg-success">
-          <div class="p-4">
-            <h5>Auto Upgrades</h5>
-            <div class="col-md-3 bg-secondary boxes">
-              <div class="text-center">
-                <span>
-                  <p class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">1000</p> <span>Bass Drops + </span><span
-                    id="bass ">0</span>
-                </span>
-              </div>
-            </div>
-            <div class="col-md-3 bg-secondary boxes">
-              <div class="text-center mt-3">
-                <span>
-                  <p class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">50000</p> <span>House Party +</span><span
-                    id="house">0</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col bg-success">
+        <div class="col background-menu">
           <div class="p-4">
             <h5>Click Stats</h5>
-            <div class="col-md-3 bg-secondary boxes">
+            <div class="col-md-3 boxes rounded-3">
               <div class="text-center">
                 <span>
-                  <p class="jelly-icon mdi mdi-liquid-spot px-2">50</p> <span>Net + </span><span>1</span>
+                  <p class="point-icon mdi mdi-cursor-pointer fs-3 px-2">1</p><span>Net + </span><span id="net">0</span>
                 </span>
               </div>
             </div>
-            <div class="col-md-3 bg-secondary boxes">
+            <div class="col-md-3 boxes rounded-3">
               <div class="text-center mt-3">
                 <span>
-                  <p class="jelly-icon mdi mdi-liquid-spot px-2">50</p> <span>Giant Net +</span><span>1</span>
+                  <p class="point-icon mdi mdi-cursor-pointer fs-3 px-2">5</p><span>Giant Net +</span><span
+                    id="scooper">0</span>
                 </span>
               </div>
             </div>
@@ -121,20 +101,45 @@
         </div>
         </div>
         </div>
-        <div class="col bg-success">
+        <div class="col background-menu">
           <div class="p-4">
-            <h5>Auto Stats</h5>
-            <div class="col-md-3 bg-secondary boxes">
+            <h5>Auto Upgrades</h5>
+            <div class="col-md-3 boxes rounded-3">
               <div class="text-center">
-                <span>
-                  <p class="mdi mdi-liquid-spot px-2">50</p> <span>Net + </span><span>1</span>
+                <span onclick="buyBeatDrop()">
+                  <p id="upgrade-beat" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">1000</p><span>Beat Drop</span>
                 </span>
               </div>
             </div>
-            <div class="col-md-3 bg-secondary boxes">
+            <div class="col-md-3 boxes rounded-3">
+              <div class="text-center mt-3">
+                <span onclick="buyHouseParty()">
+                  <p id="upgrade-house" class="jelly-icon mdi mdi-liquid-spot px-2 fs-3">50000</p><span>House
+                    Party</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col background-menu">
+          <div class="p-4">
+            <h5>Auto Stats</h5>
+            <div class="col-md-3 boxes rounded-3">
+              <div class="text-center">
+                <span>
+                  <p class="point-icon mdi mdi-cursor-pointer fs-3 px-2">10</p><span>Beat Drop + </span><span
+                    id="beat">0</span>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-3 boxes rounded-3">
               <div class="text-center mt-3">
                 <span>
-                  <p class="mdi mdi-liquid-spot px-2">50</p> <span>Giant Net +</span><span>1</span>
+                  <p class="point-icon mdi mdi-cursor-pointer fs-3 px-2">100</p><span>House Party
+                    +</span><span id="house">0</span>
                 </span>
               </div>
             </div>
