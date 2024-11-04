@@ -84,7 +84,7 @@ function buyScooper() {
   if (jelly >= net.price) {
     jelly -= net.price
     net.quantity++
-    net.price = net.quantity * net.price
+    net.price = net.quantity * net.price + 25
     let purchasedScooper = document.getElementById('scooper')
     purchasedScooper.innerText = net.quantity.toString()
     updateJellyCount()
@@ -115,7 +115,7 @@ function buyBeatDrop() {
   if (jelly >= upgrade.price) {
     jelly -= upgrade.price
     upgrade.quantity++
-    upgrade.price = upgrade.price * upgrade.quantity
+    upgrade.price = upgrade.price * upgrade.quantity + 25
     let purchasedBeatElem = document.getElementById('beat')
     purchasedBeatElem.innerText = upgrade.quantity.toString()
   }
@@ -130,7 +130,7 @@ function buyHouseParty() {
   if (jelly >= upgrade.price) {
     jelly -= upgrade.price
     upgrade.quantity++
-    upgrade.price = upgrade.price * upgrade.quantity
+    upgrade.price = upgrade.price * upgrade.quantity + 25
     let purchasedPartyElm = document.getElementById('house')
     purchasedPartyElm.innerText = upgrade.quantity.toString()
   }
