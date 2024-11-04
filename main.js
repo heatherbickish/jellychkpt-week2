@@ -1,6 +1,6 @@
 
 
-let jelly = 70000
+let jelly = 30000
 
 
 
@@ -44,7 +44,7 @@ const autoUpgrades = [
 
 
 function mineJelly() {
-  jelly += 1
+  jelly += 0
   let totalBonus = 0
   for (let i = 0; i < clickUpgrades.length; i++) {
     let upgrade = clickUpgrades[i]
@@ -69,9 +69,8 @@ function buyNet() {
   let net = clickUpgrades[0]
   if (jelly >= net.price) {
     jelly -= net.price
-    let priceIncrease = net.quantity * net.price
-    jelly -= priceIncrease
     net.quantity++
+    net.price = net.quantity * net.price // this is the SOLE location of math for our price
     let purchasedNetElm = document.getElementById('net')
     purchasedNetElm.innerText = net.quantity.toString()
     updateJellyCount()
@@ -84,9 +83,8 @@ function buyScooper() {
   let net = clickUpgrades[1]
   if (jelly >= net.price) {
     jelly -= net.price
-    let priceIncrease = net.quantity * net.price
-    jelly -= priceIncrease
     net.quantity++
+    net.price = net.quantity * net.price
     let purchasedScooper = document.getElementById('scooper')
     purchasedScooper.innerText = net.quantity.toString()
     updateJellyCount()
@@ -97,23 +95,18 @@ function buyScooper() {
 
 function upgradeNetIncrease() {
   let upgrade = clickUpgrades[0]
-  let increase = 0
   if (upgrade.quantity >= 1) {
-    increase += upgrade.quantity * upgrade.price
-    increase
     let increaseElm = document.getElementById('upgrade-net')
-    increaseElm.innerText = increase.toString()
+    increaseElm.innerText = upgrade.price.toString()
 
   }
 }
 
 function upgradeScooperIncrease() {
   let upgrade = clickUpgrades[1]
-  let increase = 0
   if (upgrade.quantity >= 1) {
-    increase += upgrade.quantity * upgrade.price
     let increaseElm = document.getElementById('upgrade-scooper')
-    increaseElm.innerText = increase.toString()
+    increaseElm.innerText = upgrade.price.toString()
   }
 }
 
@@ -121,9 +114,8 @@ function buyBeatDrop() {
   let upgrade = autoUpgrades[0]
   if (jelly >= upgrade.price) {
     jelly -= upgrade.price
-    let priceIncrease = upgrade.quantity * upgrade.price
-    jelly -= priceIncrease
     upgrade.quantity++
+    upgrade.price = upgrade.price * upgrade.quantity
     let purchasedBeatElem = document.getElementById('beat')
     purchasedBeatElem.innerText = upgrade.quantity.toString()
   }
@@ -137,9 +129,8 @@ function buyHouseParty() {
   let upgrade = autoUpgrades[1]
   if (jelly >= upgrade.price) {
     jelly -= upgrade.price
-    let priceIncrease = upgrade.quantity * upgrade.price
-    jelly -= priceIncrease
     upgrade.quantity++
+    upgrade.price = upgrade.price * upgrade.quantity
     let purchasedPartyElm = document.getElementById('house')
     purchasedPartyElm.innerText = upgrade.quantity.toString()
   }
@@ -152,37 +143,22 @@ function buyHouseParty() {
 function upgradeBeatIncrease() {
   let upgrade = autoUpgrades[0]
   if (upgrade.quantity >= 1) {
-    let increase = upgrade.quantity * upgrade.price * 2
     let increaseElm = document.getElementById('upgrade-beat')
-    increaseElm.innerText = increase.toString()
-    console.log(increase)
+    increaseElm.innerText = upgrade.price.toString()
   }
 }
 
 function upgradeHouseIncrease() {
   let upgrade = autoUpgrades[1]
   if (upgrade.quantity >= 1) {
-    let increaseHouse = upgrade.quantity * upgrade.price * 2
     let increaseHouseElem = document.getElementById('upgrade-house')
-    increaseHouseElem.innerText = increaseHouse.toString()
+    increaseHouseElem.innerText = upgrade.price.toString()
   }
 
 }
 
 
-
-
-
-
-
-
 setInterval(mineAutoJelly, 2000)
-
-
-
-
-
-
 
 
 
@@ -200,7 +176,7 @@ function updateJellyCount() {
 }
 
 function displayClickBonus() {
-  let totalBonus = 1
+  let totalBonus = 0
   for (let i = 0; i < clickUpgrades.length; i++) {
     let upgrade = clickUpgrades[i]
     totalBonus += upgrade.bonus * upgrade.quantity
@@ -208,6 +184,7 @@ function displayClickBonus() {
     dispayBonusElm.innerText = `+ ${totalBonus}`
   }
 }
+displayClickBonus()
 
 function displayAutoBonus() {
   let totalBonus = 0
